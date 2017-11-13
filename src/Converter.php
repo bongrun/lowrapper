@@ -225,7 +225,9 @@ class Converter implements ConverterInterface
      */
     protected function deleteInput(LowrapperParameters $parameters, /*string*/ $inputFile)
     {
-        unlink($inputFile);
+        if (file_exists($inputFile)) {
+            unlink($inputFile);
+        }
     }
 
 }
